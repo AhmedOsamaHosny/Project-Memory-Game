@@ -8,9 +8,14 @@ let stars = 3;
 var myVar = setInterval(myTimer, 100);
 var firstSecond = Date.now();
 var d = new Date();
+
 function myTimer() {
   d.setTime(Date.now() - firstSecond);
   var time = document.getElementById("timer").innerHTML = d.getMinutes() + ":" + d.getSeconds();
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
 }
 
 // Reset time to zero
@@ -25,7 +30,7 @@ $('.deck li').each(function() {
 
 refreshGame();
 
-function refreshGame(){
+function refreshGame() {
   openCards = [];
   moves = 0;
   stars = 3;
@@ -69,26 +74,28 @@ function numberOfMoves() {
 
 //This function open the card when the player click it
 $(document).on("click", ".card", function() {
-  $(this).addClass("open show");
-  openCards.push(this);
-  checkMatching(this.childNodes[1].className);
-  if (openCards.length > 1) {
-    if (openCards.length % 2 == 0) {
-      numberOfMoves();
-
-      if (checkMatching(this.childNodes[1].className) == false) {
-        setTimeout(function() {
-          $(openCards[openCards.length - 1]).removeClass("open show");
-          $(openCards[openCards.length - 2]).removeClass("open show");
-          openCards.pop();
-          openCards.pop();
-        }, 500);
-      } else if (checkMatching(this.childNodes[1].className) == true && openCards.length == 16) {
+  if ((this).className === "card") {
+    $(this).addClass("open show");
+    openCards.push(this);
+    checkMatching(this.childNodes[1].className);
+    if (openCards.length > 1) {
+      if (openCards.length % 2 == 0) {
+        numberOfMoves();
+        if (!checkMatching(this.childNodes[1].className)) {
           setTimeout(function() {
-          window.location = "winner.html?minutes="+d.getMinutes()+"&seconds="+d.getSeconds()+"&moves="+moves+"&stars="+stars;
-        }, 250);
-      }
+            $(openCards[openCards.length - 1]).removeClass("open show");
+            $(openCards[openCards.length - 2]).removeClass("open show");
+            openCards.pop();
+            openCards.pop();
+          }, 500);
+        } else if (checkMatching(this.childNodes[1].className) && openCards.length == 16) {
+          setTimeout(function() {
+            myStopFunction();
+            window.location = "winner.html?minutes=" + d.getMinutes() + "&seconds=" + d.getSeconds() + "&moves=" + moves + "&stars=" + stars;
+          }, 250);
+        }
 
+      }
     }
   }
 });
