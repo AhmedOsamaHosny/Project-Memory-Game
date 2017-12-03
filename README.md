@@ -5,8 +5,7 @@ The Memory Game is a well known game that depends on the ability to memorise rec
 ## Game Play
 The game consists of a set of card pairs, each card is identical to its sibling in the pair. At the beginning all the cards are arranged in a grid and all the cards are covered.
 Once the player clicks on any of the cards the card is shown and the player is required to click on its identical twin from the covered cards.
-If he succeeds in choosing the identical card, then the pair is kept shown and this pair is eliminated from the set of pairs that the player is required to match, 
-otherwise both the cards are covered again and the player still needs to match each of them to its sibling.
+If he succeeds in choosing the identical card, then the pair is kept shown and this pair is eliminated from the set of pairs that the player is required to match, otherwise both the cards are covered again and the player still needs to match each of them to its sibling.
 There is a timer that starts once the player clicks on the very first card.
 If the player opens two cards this is counted as a move.
 The player is required to match all the pairs in the least amount of time with the least amount of moves.
@@ -24,13 +23,13 @@ The game is web based, it is made using:
 ## Downloading and Playing
 * Download the zip folder from this repo or clone the repo.
 * Unzip the project (if downloaded as zip).
-* open the root folder of the project.
-* open `index.html` with any browser or drag and drop the file into the browser or type its path in the address bar of the browser.
-* you will be presented with the board and cards (covered).
-* you can start playing by randomly clicking on any card to open it (the timer will start).
+* Open the root folder of the project.
+* Open index.html with any browser or drag and drop the file into the browser or type its path in the address bar of the browser.
+* You will be presented with the board and cards (covered).
+* You can start playing by randomly clicking on any card to open it (the timer will start).
 * Once you match all the cards you will be redirected to the winning page to review your performance.
 * You can click play again in the wining page.
-* you can restart the game any time while playing from the refresh button next to the timer.
+* You can restart the game any time while playing from the refresh button next to the timer.
 
 ## Screenshots for the game play
 
